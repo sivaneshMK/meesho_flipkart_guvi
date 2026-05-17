@@ -1,3 +1,4 @@
+from selenium.common import NoSuchElementException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -33,14 +34,17 @@ class BasePage:
         logger.info(f"clicked on {field_name}")
 
     def is_displayed(self, locator, field_name):
-        element = self.get_web_driver_wait().until(
-            EC.visibility_of_element_located(locator)
-        )
-        if element:
-            logger.info(f"{field_name} is Displayed")
-            return True
-        logger.info(f"{field_name} is Not Displayed")
-        return False
+        try:
+            element = self.get_web_driver_wait().until(
+                EC.visibility_of_element_located(locator)
+            )
+            if element:
+                logger.info(f"{field_name} is Displayed")
+                return True
+            logger.info(f"{field_name} is Not Displayed")
+            return False
+        except NoSuchElementException:
+            return False
 
     def get_text(self, locator, field_name):
         element = self.wait_until_element_visible(locator)
