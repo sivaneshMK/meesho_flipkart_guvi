@@ -1,4 +1,11 @@
 {
   "base_url": "https://www.flipkart.com/",
-  "browser": "Chrome"
+  "browser": "Chrome",
+  "db_config": {
+    "host_name": "127.0.0.1",
+    "port":"3306",
+    "username": "root",
+    "password": "Sivanesh@0312",
+    "bd_name": "automation2026"
+  }
 }

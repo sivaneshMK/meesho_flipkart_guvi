@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 
 from page_object.base_page import BasePage
+from utilities.db_helper import DbHelper
 
 
 class HomePage(BasePage):
@@ -20,3 +21,9 @@ class HomePage(BasePage):
     def close_authentication_popup(self):
         if self.is_displayed(self.__user_authentication_popup, "authentication popup"):
             self.click(self.__user_authentication_popup_close_button, "Authentication popup close Button")
+
+
+    def read_user_data(self):
+
+        value = DbHelper.execute_query("SELECT * FROM automation2026.standared;")
+        print(value)

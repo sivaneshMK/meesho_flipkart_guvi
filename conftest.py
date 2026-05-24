@@ -1,8 +1,10 @@
 import base64
 import os
 
+
 import pytest
 import pytest_html
+import mysql.connector
 
 from drivers.driver_factory import DriverFactory
 from utilities.json_helper import JsonHelper
@@ -56,3 +58,8 @@ def pytest_runtest_makereport(item, call):
             extra = getattr(report, "extra", [])
             extra.append(pytest_html.extras.png(encoded_image))
             report.extra = extra
+
+
+
+
+
