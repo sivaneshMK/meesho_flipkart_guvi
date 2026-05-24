@@ -10,3 +10,23 @@ DataDriven
 ------------
 concept to test the particular field and form
 with multiple set of datas it may be a +ve or -ve data
+
+
+API
+-------
+Application programming interface
+
+it is act as a intermediate between
+FE and BE, Application to application
+
+EX: 
+API request contains --> IP, Browser version
+browser name, os version and brand 
+
+status code
+---------------
+1XX --> the request is sent successfully 
+2XX --> you have sent a request you will receive the response
+3XX --> redirections 
+4XX --> client error, FE error , Bad request, forbidant, unautherized, Not found
+5XX --> Back end error, server error
